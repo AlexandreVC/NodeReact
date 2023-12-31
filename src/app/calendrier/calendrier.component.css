@@ -1,0 +1,25 @@
+/* Surcharge des styles de Bootstrap pour les éléments du calendrier */
+.calendrier .btn {
+  /* Surcharge du style des boutons si nécessaire */
+  background-color: #f8f9fa; /* Bootstrap's default for `.btn-secondary` */
+  border-color: #f8f9fa;
+}
+
+.calendrier .btn:hover {
+  /* Surcharge du style au survol des boutons */
+  background-color: #e2e6ea; /* Un peu plus sombre que la couleur par défaut */
+  border-color: #dae0e5;
+}
+
+/* Surcharge des styles pour les jours du calendrier */
+.calendrier mwl-calendar-month-cell {
+  /* Vos styles personnalisés ici */
+  background-color: #fff; /* Fond blanc par exemple */
+  border: 1px solid #ddd; /* Bordure légère */
+}
+
+/* Surcharge des styles pour les événements du calendrier */
+.calendrier mwl-calendar-event {
+  /* Vos styles personnalisés pour les événements */
+  color: #495057; /* Couleur du texte similaire à celle de Bootstrap */
+}
