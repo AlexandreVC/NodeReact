@@ -1,13 +1,11 @@
+<div class="calendrier-header">
+  <h3>Aujourd'hui: {{ currentDay | titlecase }} {{ currentMonth | titlecase }} {{ viewDate | date: 'y' }} </h3>
+</div>
+
 <div>
   <div class="row text-center">
     <div class="col-md-4">
-      <button class="btn btn-primary" (click)="previousMonth()">Mois Précédent</button>
-    </div>
-    <div class="col-md-4">
       <h2>{{ viewDate | calendarDate:(view + 'ViewTitle'):'fr' }}</h2>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-primary" (click)="nextMonth()">Mois Suivant</button>
     </div>
   </div>
   <br>
