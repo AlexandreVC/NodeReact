@@ -19,7 +19,7 @@ exports.getDeckId = async (req, res) => {
     const { deckName } = req.params;
 
     try {
-        const deck = await deck.findOne({ where: { name: deckName } });
+        const deck = await Deck.findOne({ where: { name: deckName } }); // Utilisation du modèle Deck
 
         if (!deck) {
             return res.status(404).json({ message: 'Deck not found' });
