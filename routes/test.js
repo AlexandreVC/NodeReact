@@ -1,6 +1,6 @@
 const {getAllDecks,getDeckId}  = require('./deckRoutes');
 const{getRandomCardByDeckId,getAllCardsByDeckId,getAllCards}=require ('./cardRoutes')
-
+const { createUser } = require('../controllers/userController');
 const mockRequest = {};
 const mockResponse = {
     status: function(code) {
@@ -62,4 +62,31 @@ const mockResponse4 = {
 //getRandomCardByDeckId(mockRequest3,mockResponse3);
 //getAllCardsByDeckId(mockRequest4,mockResponse4)
 //getAllCards(mockRequest, mockResponse);
+const createUserFromMockRequest = async (mockRequest) => {
+    try {
+        const req = mockRequest;
+        const res = {
+            status: function (statusCode) {
+                this.statusCode = statusCode;
+                return this;
+            },
+            json: function (data) {
+                console.log(data);
+            }
+        };
 
+        const userData = req.body;
+
+        await createUser(req, res);
+    } catch (error) {
+        console.error('Erreur lors de la création de l\'utilisateur :', error);
+    }
+};
+
+const mockRequest6 = { body: {
+        username: 'john_doe1',
+        email: 'john1@example.com',
+        password: 'password123',
+    }};
+
+//createUserFromMockRequest(mockRequest6);
