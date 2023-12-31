@@ -1,6 +1,6 @@
-const {getAllDecks}  = require('./deckRoutes');
+const {getAllDecks,getDeckId}  = require('./deckRoutes');
+const{getRandomCardByDeckId,getAllCardsByDeckId,getAllCards}=require ('./cardRoutes')
 
-// Simulez une requête et une réponse HTTP pour tester la fonction
 const mockRequest = {};
 const mockResponse = {
     status: function(code) {
@@ -8,31 +8,58 @@ const mockResponse = {
         return this; // Pour permettre le chaînage des méthodes
     },
     json: function(data) {
-        console.log(data); // Affichage du résultat de la fonction dans la console
+        console.log(data);
     }
 };
-
-// Appelez votre fonction avec la requête et la réponse simulées
-getAllDecks(mockRequest, mockResponse);
-
-const {getDeckId} = require('./deckRoutes'); // Assurez-vous de remplacer le chemin correctement
-
 const mockRequest2 = {
     params: {
-        deckName: 'Sample Deck 3' // Nom du deck pour lequel vous souhaitez obtenir l'ID
+        deckName: 'Sample Deck 3'
     }
 };
 
 const mockResponse2 = {
-    statusCode: 200, // Initialisez le statut si nécessaire
+    statusCode: 200,
+    status: function(code) {
+        this.statusCode = code;
+        return this;
+    },
+    json: function(data) {
+        console.log(data);
+    }
+};
+const mockRequest3 = {
+    params: {
+        deckId: 4
+    }
+};
+
+const mockResponse3 = {
+    statusCode: 200,
+    status: function(code) {
+        this.statusCode = code;
+        return this;
+    },
+    json: function(data) {
+        console.log(data);
+    }
+};
+const mockRequest4 = {
+    params: {
+        deckId: 4
+    }
+};
+const mockResponse4 = {
     status: function(code) {
         this.statusCode = code;
         return this; // Pour permettre le chaînage des méthodes
     },
     json: function(data) {
-        console.log(data); // Affichage du résultat de la fonction dans la console
+        console.log(data);
     }
 };
+//getDeckId(mockRequest2, mockResponse2);
+//getAllDecks(mockRequest, mockResponse);
+//getRandomCardByDeckId(mockRequest3,mockResponse3);
+//getAllCardsByDeckId(mockRequest4,mockResponse4)
+//getAllCards(mockRequest, mockResponse);
 
-// Appelez votre fonction avec la requête et la réponse simulées
-getDeckId(mockRequest2, mockResponse2);
