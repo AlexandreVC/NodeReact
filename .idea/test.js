@@ -1,5 +1,6 @@
 // Importez la configuration de la base de données depuis un fichier db.js
-const pool = require('./db.js');
+const pool = require('../config/db');
+
 
 // Créez un nouvel utilisateur
 const newUser = {
@@ -10,7 +11,7 @@ const newUser = {
 
 // Requête d'insertion dans la table users
 const query = {
-    text: 'INSERT INTO users(username, email, password) VALUES($1, $2, $3) RETURNING *',
+    text: 'INSERT INTO Users(username, email, password) VALUES($1, $2, $3) RETURNING *',
     values: [newUser.username, newUser.email, newUser.password],
 };
 
@@ -23,5 +24,3 @@ pool.query(query, (error, result) => {
     }
 });
 
-
-createUserExample(); // Appel de la fonction pour créer un utilisateur au moment de l'exécution

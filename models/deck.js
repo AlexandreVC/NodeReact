@@ -10,16 +10,39 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
     }
   }
   Deck.init({
-    name: DataTypes.STRING,
-    lastDate: DataTypes.DATE,
-    userId: DataTypes.INTEGER
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Users',
+        key: 'id'
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    }
   }, {
     sequelize,
     modelName: 'Deck',
+    tableName: 'Decks',
+    timestamps: false
   });
+
   return Deck;
 };
